@@ -16,9 +16,7 @@ namespace Application.Features.Reservations.Commands.CreateReservation
     {
         public int TourId { get; set; }
         public string CustomerFullName { get; set; }
-
         public string CustomerPhone { get; set; }
-
         public int NumberOfPerson { get; set; }
         public bool IsActive { get; set; }
 
@@ -42,16 +40,17 @@ namespace Application.Features.Reservations.Commands.CreateReservation
                 var listReservation = _reservationRepository.GetAllAsync(x => x.TourId == request.TourId).GetAwaiter().GetResult();
 
                 int sum = 0;
+                int total = 0;
                 foreach (var item in listReservation)
                 {
-                     sum = ++item.NumberOfPerson;
+                     sum = sum + item.NumberOfPerson;
                 }
-
+                total = sum + request.NumberOfPerson;
                 if (sum >= numberOfSeats)
                 {
                     throw new ApiException($"All seats are occupied.");
                 }
-                else if (sum > numberOfSeats + request.NumberOfPerson)
+                else if (total >= numberOfSeats )
                 {
                     throw new ApiException($"Reserves cannot be made more than the appropriate seat number.");
                 }

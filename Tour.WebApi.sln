@@ -25,6 +25,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure.Identity", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure.Shared", "Infrastructure.Shared\Infrastructure.Shared.csproj", "{C4009D3B-6161-4494-ADFC-18783719A065}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tour.WebApi.NUnitTest", "Tour.WebApi.NUnitTest\Tour.WebApi.NUnitTest.csproj", "{BC87FDE9-187C-4E69-8898-7AD1EAA69A85}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,10 @@ Global
 		{C4009D3B-6161-4494-ADFC-18783719A065}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4009D3B-6161-4494-ADFC-18783719A065}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C4009D3B-6161-4494-ADFC-18783719A065}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC87FDE9-187C-4E69-8898-7AD1EAA69A85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC87FDE9-187C-4E69-8898-7AD1EAA69A85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC87FDE9-187C-4E69-8898-7AD1EAA69A85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC87FDE9-187C-4E69-8898-7AD1EAA69A85}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -69,6 +75,7 @@ Global
 		{C772A90E-F5CA-4D58-977D-574C93F8AF3F} = {FC49C8DC-04D6-40EE-8F6A-B437B52811BA}
 		{876F2CD8-1519-419A-9402-7C8B856DBE7C} = {FC49C8DC-04D6-40EE-8F6A-B437B52811BA}
 		{C4009D3B-6161-4494-ADFC-18783719A065} = {FC49C8DC-04D6-40EE-8F6A-B437B52811BA}
+		{BC87FDE9-187C-4E69-8898-7AD1EAA69A85} = {FE9EA6C6-1E6C-4CBD-886E-4FB321D9A341}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {65584FD6-4295-480B-B02D-ADAC34713D84}

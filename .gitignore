@@ -341,3 +341,4 @@ healthchecksdb
 
 WebApi/appsettings.Development.json
 VSIXCore/
+/Infrastructure.Persistence/Migrations

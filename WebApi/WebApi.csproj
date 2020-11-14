@@ -4,9 +4,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <Authors>Yasin Yenil</Authors>
     <Company>yasinyenil</Company>
-    <RepositoryUrl>https://github.com/yasinyenil</RepositoryUrl>
+    <RepositoryUrl>https://github.com/yasinyenil/Tour.WebApi</RepositoryUrl>
     <RepositoryType>Public</RepositoryType>
-    <PackageProjectUrl>https://github.com/yasinyenil</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/yasinyenil/Tour.WebApi</PackageProjectUrl>
     <Version>1.1.0</Version>
   </PropertyGroup>
 

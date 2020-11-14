@@ -1,4 +1,5 @@
-﻿using Application.Features.Tours.Commands;
+﻿using Application.Features.Reservations.Commands.CreateReservation;
+using Application.Features.Tours.Commands;
 using Application.Features.Tours.Queries.GetAllTours;
 using Application.Features.Tours.Queries.GetAllToursByTourDestination;
 using AutoMapper;
@@ -17,6 +18,9 @@ namespace Application.Mappings
             CreateMap<CreateTourCommand, Tour>();
             CreateMap<GetAllToursQuery, GetAllTourParameter>();
             CreateMap<GetAllToursByTourDestinationQuery,GetAllTourSearchParameter>();
+
+            CreateMap<CreateReservationCommand, Reservation>();
+
         }
     }
 }
