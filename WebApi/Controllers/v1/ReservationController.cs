@@ -16,7 +16,7 @@ namespace WebApi.Controllers.v1
         //You can reserve a tour and seat
         // POST api/<controller>
         [HttpPost]
-        //[Authorize]
+        [Authorize]
         public async Task<IActionResult> Post(CreateReservationCommand command)
         {
             return Ok(await Mediator.Send(command));

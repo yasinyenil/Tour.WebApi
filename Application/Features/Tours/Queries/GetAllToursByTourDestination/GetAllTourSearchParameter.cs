@@ -8,5 +8,6 @@ namespace Application.Features.Tours.Queries.GetAllTours
     {
         public string FromWhere { get; set; }
         public string ToWhere { get; set; }
+        public string UserId { get; set; }
     }
 }

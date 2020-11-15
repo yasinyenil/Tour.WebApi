@@ -50,7 +50,7 @@ namespace Application.Features.Reservations.Commands.CreateReservation
                 {
                     throw new ApiException($"All seats are occupied.");
                 }
-                else if (total >= numberOfSeats )
+                else if (total > numberOfSeats )
                 {
                     throw new ApiException($"Reserves cannot be made more than the appropriate seat number.");
                 }

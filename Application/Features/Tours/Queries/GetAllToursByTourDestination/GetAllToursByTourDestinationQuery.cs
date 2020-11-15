@@ -17,19 +17,19 @@ namespace Application.Features.Tours.Queries.GetAllToursByTourDestination
     {
         public string FromWhere { get; set; }
         public string ToWhere { get; set; }
+        public string UserId { get; set; }
 
         public class GetAllToursByTourDestinationQueryHandler : IRequestHandler<GetAllToursByTourDestinationQuery, Response<IEnumerable<Tour>>>
         {
             private readonly ITourRepositoryAsync _tourRepository;
-            private readonly IAuthenticatedUserService _authenticatedUser;
-            public GetAllToursByTourDestinationQueryHandler(ITourRepositoryAsync tourRepository, IAuthenticatedUserService authenticatedUser)
+            public GetAllToursByTourDestinationQueryHandler(ITourRepositoryAsync tourRepository)
             {
                 _tourRepository = tourRepository;
-                _authenticatedUser = authenticatedUser;
             }
             public async Task<Response<IEnumerable<Tour>>> Handle(GetAllToursByTourDestinationQuery query, CancellationToken cancellationToken)
             {
-                var tour = await _tourRepository.GetAllAsync(x => x.FromWhere == query.FromWhere && x.ToWhere == query.ToWhere && x.CreatedBy == _authenticatedUser.UserId);
+                //var tour = await _tourRepository.GetAllAsync(x => x.FromWhere == query.FromWhere && x.ToWhere == query.ToWhere && x.CreatedBy == query.UserId);
+                var tour = await _tourRepository.GetAllAsync(x => x.FromWhere == query.FromWhere && x.ToWhere == query.ToWhere);
                 if (tour == null) throw new ApiException($"Tour Not Found.");
                 return new Response<IEnumerable<Tour>>(tour);
             }

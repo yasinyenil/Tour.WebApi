@@ -8,6 +8,7 @@ using Application.Features.Tours.Commands.UpdateTour;
 using Application.Features.Tours.Queries.GetAllTours;
 using Application.Features.Tours.Queries.GetAllToursByTourDestination;
 using Application.Features.Tours.Queries.GetTourByIdQuery;
+using Application.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -17,6 +18,14 @@ namespace WebApi.Controllers.v1
     [ApiVersion("1.0")]
     public class TourController : BaseApiController
     {
+
+        private readonly IAuthenticatedUserService _authenticatedUser;
+
+        public TourController(IAuthenticatedUserService authenticatedUser)
+        {
+            _authenticatedUser = authenticatedUser;
+        }
+
         // GET: api/<controller>
         [HttpGet]
         public async Task<IActionResult> Get([FromQuery] GetAllTourParameter filter)
@@ -32,15 +41,15 @@ namespace WebApi.Controllers.v1
             return Ok(await Mediator.Send(new GetTourByIdQuery { Id = id }));
         }
 
-        [HttpGet]
-        public async Task<IActionResult> Get([FromQuery] GetAllTourSearchParameter filter)
+        [HttpGet("get-criteria")]
+        public async Task<IActionResult> GetCriteria([FromQuery] GetAllTourSearchParameter filter)
         {
-            return Ok(await Mediator.Send(new GetAllToursByTourDestinationQuery { FromWhere= filter.FromWhere, ToWhere = filter.ToWhere }));
+            return Ok(await Mediator.Send(new GetAllToursByTourDestinationQuery { FromWhere= filter.FromWhere, ToWhere = filter.ToWhere , UserId = _authenticatedUser.UserId }));
         }
 
         // POST api/<controller>
         [HttpPost]
-        //[Authorize]
+        [Authorize]
         public async Task<IActionResult> Post(CreateTourCommand command)
         {
             return Ok(await Mediator.Send(command));
